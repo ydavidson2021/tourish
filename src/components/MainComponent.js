@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import SiteInfo from './SiteInfoComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 import { SITES } from '../shared/sites';
 
 class Main extends Component {
@@ -20,13 +21,10 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <Navbar dark color="secondary">
-                    <div className="container">
-                        <NavbarBrand href="/">Tourish</NavbarBrand>
-                    </div>
-                </Navbar>
+                <Header />
                 <Directory sites={this.state.sites} onClick={siteId => this.onSiteSelect(siteId)}/>
                 <SiteInfo site={this.state.sites.filter(site => site.id === this.state.selectedSite)[0]} />
+                <Footer />
             </div>
         );
     };

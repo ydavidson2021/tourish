@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 function RenderSite({site}){
@@ -38,7 +38,7 @@ function SiteInfo (props) {
         return (
             <div className="container">
                 <div className="row">
-                    <RenderCampsite campsite={props.site} />
+                    <RenderSite campsite={props.site} />
                     <RenderComments comments={props.site.comments} />
                 </div>
             </div>
