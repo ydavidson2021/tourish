@@ -3,7 +3,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 function RenderDirectoryItem({site, onClick}) {
     return (
-        <Card onClick={() => onClick(site.id)}>
+        <Card>
             <CardImg width="400" height="200"  src={site.image} alt={site.name} />
             <CardImgOverlay>
                 <CardTitle>{site.name}</CardTitle>
@@ -17,7 +17,7 @@ function Directory(props) {
     const directory = props.sites.map(site => {
         return (
             <div key={site.id} className="col-md-5 m-1">
-                <RenderDirectoryItem site={site} onClick={props.onClick} />
+                <RenderDirectoryItem site={site} />
             </div>
         );
     });
