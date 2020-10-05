@@ -39,7 +39,7 @@ function SiteInfo (props) {
             <div className="container">
                 <div className="row">
                     <RenderSite campsite={props.site} />
-                    <RenderComments comments={props.site.comments} />
+                    <RenderComments comments={props.comments} />
                 </div>
             </div>
         );
