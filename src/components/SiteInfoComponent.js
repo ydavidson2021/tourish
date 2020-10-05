@@ -1,5 +1,6 @@
 import React from 'react'; 
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 function RenderSite({site}){
@@ -8,7 +9,6 @@ function RenderSite({site}){
             <Card>
                 <CardImg top width="400" height="200" top src={site.image} alt={site.name} />
                 <CardBody>
-                    <CardTitle>{site.name}</CardTitle>
                     <CardText>{site.description}</CardText>
                 </CardBody>
             </Card>
@@ -38,7 +38,17 @@ function SiteInfo (props) {
         return (
             <div className="container">
                 <div className="row">
-                    <RenderSite campsite={props.site} />
+                    <div className="col">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/directory">Directory</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>{props.site.name}</BreadcrumbItem>
+                        </Breadcrumb>
+                        <h2>{props.site.name}</h2>
+                        <hr />
+                    </div>
+                </div>
+                <div className="row">
+                    <RenderSite site={props.site} />
                     <RenderComments comments={props.comments} />
                 </div>
             </div>
